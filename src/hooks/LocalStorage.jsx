@@ -7,24 +7,24 @@ const useLocalStorage = (itemName, initialValue) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            try {
 
-                const itemsFromStorage = window.localStorage.getItem(itemName)
+        try {
 
-                if (!itemsFromStorage || itemsFromStorage === 'undefined') {
-                    localStorage.setItem(itemName, JSON.stringify(initialValue));
-                    setItems(JSON.stringify(initialValue))
-                    return
-                }
+            const itemsFromStorage = window.localStorage.getItem(itemName)
 
-                setItems(JSON.parse(itemsFromStorage))
-                setloading(false)
-            } catch (error) {
-                console.log(error)
-                setError(true)
+            if (!itemsFromStorage || itemsFromStorage === 'undefined') {
+                localStorage.setItem(itemName, JSON.stringify(initialValue));
+                setItems(JSON.stringify(initialValue))
+                return
             }
-        }, 2000)
+
+            setItems(JSON.parse(itemsFromStorage))
+            setloading(false)
+        } catch (error) {
+            console.log(error)
+            setError(true)
+        }
+
     }, [setItems])
 
     const saveTodos = (newItems) => {
