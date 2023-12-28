@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/https//andrextor.github.io/todo-react/static/css/main.2d33fd45.css",
+    "main.js": "/https//andrextor.github.io/todo-react/static/js/main.cd226af9.js",
+    "static/media/delete.svg": "/https//andrextor.github.io/todo-react/static/media/delete.7d482a2298eab79c099f730eccc5d786.svg",
+    "index.html": "/https//andrextor.github.io/todo-react/index.html",
+    "static/media/check.svg": "/https//andrextor.github.io/todo-react/static/media/check.fc0ec402c59305f1c7715350a99a0006.svg",
+    "main.2d33fd45.css.map": "/https//andrextor.github.io/todo-react/static/css/main.2d33fd45.css.map",
+    "main.cd226af9.js.map": "/https//andrextor.github.io/todo-react/static/js/main.cd226af9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d33fd45.css",
+    "static/js/main.cd226af9.js"
+  ]
+}
