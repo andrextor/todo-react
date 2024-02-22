@@ -6,10 +6,11 @@ import { Search } from './Search';
 import { List } from './List';
 import { Item } from './Item';
 import { CreateTodo } from './CreateTodo';
-import { TodoContext } from "../TodoContext";
+import { TodoContext } from "../userTodos";
 import { Modal } from "./Modal";
 import { useContext } from "react";
 import { TodoForm } from "./TodoForm";
+import { TodoHeader } from "./TodoHeader";
 
 const AppUI = () => {
 
@@ -21,13 +22,16 @@ const AppUI = () => {
         deleteTodo,
         todos,
         openModal,
-        setOpenModal
+        setOpenModal,
+        setSearch
     } = useContext(TodoContext)
 
     return (
         <div className="App">
-            <TodoCompleted />
-            <Search />
+            <TodoHeader>
+                <TodoCompleted todos={todos} />
+                <Search search={search} setSearch={setSearch} />
+            </TodoHeader>
             <List>
                 {loading && <TodosLoading />}
                 {!loading && error && <TodosError />}

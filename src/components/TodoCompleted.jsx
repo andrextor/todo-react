@@ -1,18 +1,15 @@
-import { useContext } from 'react';
 import '../styles/todoCompleted.css'
-import { TodoContext } from '../TodoContext';
 
-const TodoCompleted = () => {
-    const { todos } = useContext(TodoContext)
+const TodoCompleted = ({ todos }) => {
 
-    const completedTodos = () => todos.filter(todo => todo.completed).length
-    const isComplete = todos.length === completedTodos();
+    const completedTodos = () => todos?.filter(todo => todo.completed)?.length
+    const isComplete = todos?.length === completedTodos();
     return (
         <>
             {!isComplete
                 ?
                 < h1 className='counter'>
-                    Completed <span>{completedTodos()}</span>  of <span>{todos.length}</span> TODOS
+                    Completed <span>{completedTodos()}</span>  of <span>{todos?.length}</span> TODOS
                 </h1 >
                 : <h1>Conseguido , todas tus tareas listas 🎉</h1>
             }

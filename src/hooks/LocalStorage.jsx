@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 
 
-const useLocalStorage = (itemName, initialValue) => {
-    const [items, setItems] = useState(initialValue);
+const useLocalStorage = (itemName = null, initialValue = null) => {
+    const initial = initialValue ?? [];
+    const [todos, setItems] = useState(initial);
     const [loading, setloading] = useState(true);
     const [error, setError] = useState(false);
 
     useEffect(() => {
 
         try {
-
             const itemsFromStorage = window.localStorage.getItem(itemName)
 
             if (!itemsFromStorage || itemsFromStorage === 'undefined') {
-                localStorage.setItem(itemName, JSON.stringify(initialValue));
-                setItems(JSON.stringify(initialValue))
+                localStorage.setItem(itemName, JSON.stringify(initial));
+                setItems(JSON.stringify(initial))
                 return
             }
 
@@ -32,7 +32,7 @@ const useLocalStorage = (itemName, initialValue) => {
         setItems(newItems)
     }
 
-    return [items, saveTodos, loading, error]
+    return [todos, saveTodos, loading, error]
 }
 
 export { useLocalStorage }
