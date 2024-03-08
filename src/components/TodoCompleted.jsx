@@ -1,19 +1,17 @@
 import '../styles/todoCompleted.css'
 
-const TodoCompleted = ({ todos }) => {
+const TodoCompleted = ({ todos, loading, onLoading }) => {
 
     const completedTodos = () => todos?.filter(todo => todo.completed)?.length
     const isComplete = todos?.length === completedTodos();
     return (
         <>
-            {!isComplete
-                ?
-                < h1 className='counter'>
-                    Completed <span>{completedTodos()}</span>  of <span>{todos?.length}</span> TODOS
-                </h1 >
-                : <h1>Conseguido , todas tus tareas listas 🎉</h1>
+            {loading && onLoading()}
+            {!loading && ! isComplete && (< h1 className={`counter ${loading && "counter--loading"}`}>
+                Completed <span>{completedTodos()}</span>  of <span>{todos?.length}</span> TODOS
+            </h1>)
             }
-
+            {!loading && isComplete && <h1>Conseguido , todas tus tareas listas 🎉</h1>}
         </>
     )
 }

@@ -10,16 +10,22 @@ const useLocalStorage = (itemName = null, initialValue = null) => {
     useEffect(() => {
 
         try {
-            const itemsFromStorage = window.localStorage.getItem(itemName)
 
-            if (!itemsFromStorage || itemsFromStorage === 'undefined') {
-                localStorage.setItem(itemName, JSON.stringify(initial));
-                setItems(JSON.stringify(initial))
-                return
-            }
+            setTimeout(() => {
+    
+                const itemsFromStorage = window.localStorage.getItem(itemName)
 
-            setItems(JSON.parse(itemsFromStorage))
-            setloading(false)
+                if (!itemsFromStorage || itemsFromStorage === 'undefined') {
+                    localStorage.setItem(itemName, JSON.stringify(initial));
+                    setItems(JSON.stringify(initial))
+                    return
+                }
+
+                setItems(JSON.parse(itemsFromStorage))
+                setloading(false)
+            }, 1000)
+
+
         } catch (error) {
             console.log(error)
             setError(true)

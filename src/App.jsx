@@ -24,33 +24,38 @@ function App() {
     openModal,
     setOpenModal,
     setSearch,
-    addTodo
+    addTodo,
+    searchedTodos
   } = useTodos();
 
   return (
     <div className="App">
-      <TodoHeader>
-        <TodoCompleted todos={todos} />
+      <TodoHeader loading={loading}>
+        <TodoCompleted todos={todos} onLoading={() => <p> Loading...</p>} />
         <Search search={search} setSearch={setSearch} />
       </TodoHeader>
-      <List>
-        {loading && <TodosLoading />}
-        {!loading && error && <TodosError />}
-        {(!loading && todos.length <= 0) && <TodosEmpty />}
 
-        {todos
-          ?.filter(todo => todo.text.toLowerCase().includes(search))
-          .map(todo =>
-            <Item
-              key={todo.text}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-            />
-          )}
-      </List>
-
+      <List
+        error={error}
+        loading={loading}
+        search={search}
+        todos={todos}
+        searchedTodos={searchedTodos}
+        onError={() => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onEmpty={() => <TodosEmpty />}
+        onEmptySearchResults={(searchText) => <p>No se encontraron resultados para {searchText}</p>}
+        render={todo => (
+          <Item
+            key={todo?.text}
+            text={todo?.text}
+            completed={todo?.completed}
+            onComplete={() => completeTodo(todo?.text)}
+            onDelete={() => deleteTodo(todo?.text)}
+          />
+        )
+        }
+      />
       <CreateTodo setOpenModal={setOpenModal} />
 
       {
