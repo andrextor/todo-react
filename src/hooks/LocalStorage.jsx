@@ -8,7 +8,6 @@ const useLocalStorage = (itemName = null, initialValue = null) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-
         try {
             const itemsFromStorage = window.localStorage.getItem(itemName)
 
