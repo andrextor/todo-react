@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import '../styles/TodoForm.css'
-import { useTodos } from '../userTodos';
+import { useTodos } from '../useTodos';
 
 const TodoForm = ({ setOpenModal, addTodo }) => {
     const [newTodoValue, setTodoValue] = useState('');

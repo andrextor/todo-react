@@ -6,7 +6,7 @@ const LOCAL_STORAGE_NAME = 'TODOS_V1';
 function useTodos() {
 
     const [search, setSearch] = useState('');
-    const [todos, saveTodos, loading, error] = useLocalStorage(LOCAL_STORAGE_NAME, [])
+    const [todos, saveTodos, loading, error, sincronizeItem] = useLocalStorage(LOCAL_STORAGE_NAME, [])
 
     const addTodo = (text) => {
         const newTodos = [...todos];
@@ -42,12 +42,13 @@ function useTodos() {
             setSearch,
             loading,
             error,
-            completeTodo,
             deleteTodo,
             openModal,
             setOpenModal,
             addTodo,
-            searchedTodos
+            sincronizeItem,
+            searchedTodos,
+            completeTodo
         })
 }
 
