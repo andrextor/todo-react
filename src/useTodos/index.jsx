@@ -47,7 +47,8 @@ function useTodos() {
             setOpenModal,
             addTodo,
             sincronizeItem,
-            searchedTodos
+            searchedTodos,
+            completeTodo
         })
 }
 

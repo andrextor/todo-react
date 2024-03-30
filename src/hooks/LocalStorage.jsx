@@ -9,11 +9,11 @@ const useLocalStorage = (itemName = null, initialValue = null) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
+        const itemsFromStorage = window.localStorage.getItem(itemName) ?? [];
         try {
 
             setTimeout(() => {
-    
-                const itemsFromStorage = window.localStorage.getItem(itemName)
+
 
                 if (!itemsFromStorage || itemsFromStorage === 'undefined') {
                     localStorage.setItem(itemName, JSON.stringify(initial));
