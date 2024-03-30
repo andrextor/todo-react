@@ -30,6 +30,9 @@ function useTodos() {
         saveTodos(newTodos)
     }
 
+    const searchedTodos = () => todos?.filter(todo => todo.text.toLowerCase().includes(search))
+
+
     const [openModal, setOpenModal] = useState(false);
 
     return (
@@ -44,6 +47,7 @@ function useTodos() {
             setOpenModal,
             addTodo,
             sincronizeItem,
+            searchedTodos
         })
 }
 

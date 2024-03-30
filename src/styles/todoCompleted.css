@@ -9,3 +9,8 @@
 .counter span {
     font-weight: bold;
 }
+
+.counter--loading {
+    opacity: 25%;
+    color: rebeccapurple;
+}
