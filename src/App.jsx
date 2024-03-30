@@ -12,7 +12,7 @@ import { Modal } from "./components/Modal";
 import { TodoForm } from "./components/TodoForm";
 import { TodoHeader } from "./components/TodoHeader";
 import { useTodos } from './useTodos';
-import { ChangeAlertWithStorageListener } from "./components/ChangeALert"
+import { ChangeAlert } from "./components/ChangeALert"
 
 function App() {
   const {
@@ -68,11 +68,11 @@ function App() {
         )
       }
 
-      <ChangeAlertWithStorageListener
-        sincronize={sincronizeItem}
+      <ChangeAlert
+       sincronize={sincronizeItem}
       >
 
-      </ChangeAlertWithStorageListener>
+      </ChangeAlert>
     </div>
   );
 }

@@ -1,5 +1,6 @@
-import { withStorageListener } from "./WithStorageListener";
-const ChangeAlert = ({ show, toogleShow }) => {
+import { useStorageListener } from "./useStorageListener";
+const ChangeAlert = ({ sincronized }) => {
+    const { show, toogleShow } = useStorageListener(sincronized)
     if (show) {
         return <div>
             <p>Hubo Cambios</p>
@@ -11,6 +12,4 @@ const ChangeAlert = ({ show, toogleShow }) => {
 
 }
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert)
-
-export { ChangeAlertWithStorageListener }
+export { ChangeAlert }
